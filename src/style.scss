@@ -1,6 +1,4 @@
-body{
-    background-color: rgb(235, 233, 235);
-}
+
 
 @mixin flex($tipo, $aling, $justify){
     display: flex;
@@ -9,76 +7,100 @@ body{
     align-items: $aling;
 }
 
-$border: black solid 2px;
-
 @mixin celda(){
     width: 150px;
     height: 150px;
 }
 
-#curri{
-    @include flex(row, flex-start, center);
-    border: $border;
-    width: 80%;
-    margin-top: 150px;
-    margin-bottom: 150px;
-    margin-left: 180px;
-        #menu{
-        @include flex(column, center, flex-start);
-        border : $border;
-            #fotoNombre{
-                @include flex(column, center, center);
-                width: 150px;
-                height: 180px;
-                #foto{
-                    background-image: url('../dist/public/assets/Foto.png');
-                    background-position: center;
-                    background-size: cover;
-                    flex-grow: 1;
-                    width: inherit;
+$border: black solid 2px;
+$colorGrey: #999999;
+$colorFondoClaro: #ffffff;
+$colorOscuro:  #2a2a2a;
+$colorLetraGrisClaro: #999999;
+$colorAmarillo: #ffd42d;
+
+
+body{
+    background-color:#eaeaea;
+
+    #curri{
+        @include flex(row, flex-start, center);
+        border: $border;
+        width: 80%;
+        margin-top: 150px;
+        margin-bottom: 150px;
+        margin-left: 180px;
+            #menu{
+            @include flex(column, center, flex-start);
+
+                #fotoNombre{
+                    @include flex(column, center, center);
+                    width: 150px;
+                    height: 180px;
+                        #foto{
+                            background-image: url('../dist/public/assets/Foto.png');
+                            background-position: center;
+                            background-size: cover;
+                            flex-grow: 1;
+                            width: inherit;
+                        }
+                        #nombre{
+                            background-color: #3f3f3f;
+                            width: inherit;
+                            height: 25px;
+                            padding-top: 5px;
+                            text-align: center;
+                            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                            color: #e8e8e8;
+                            font-weight: bold;
+                        }
                 }
-                #nombre{
-                    background-color: rgb(58, 56, 56);
-                    width: inherit;
-                    height: 25px;
-                    padding-top: 5px;
-                    text-align: center;
-                    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                    color: #e8e8e8;
-                    font-weight: bold;
+                
+                .elementoMenu{
+                    @include flex(column, center, space-evenly);
+                    @include celda();
+                    background-color: $colorFondoClaro;
+                    border-bottom: solid 1px rgba(211, 211, 211, 0.634);
+                        .iconoMenu{
+                            width: 20px;
+                        }
+                        .tituloMenu{
+                            font-size: medium;
+                            font-weight: bolder;
+                            color: $colorOscuro;
+                        }
+                        .subtituloMenu{
+                            font-size: small;
+                            margin-top: -20px;
+                            color: $colorLetraGrisClaro;
+                        }                    
+            
                 }
             }
-            .elementoMenu{
+            #texto{
                 @include flex(column, center, space-evenly);
-                @include celda();
-                background-color: #ffffff;
-                .iconoMenu{
-                    width: 20px;
-                }
-                .tituloMenu{
-                    font-size: medium;
-                    font-weight: bolder;
-                    color: #2a2a2a
-                }
-                .subtituloMenu{
-                    font-size: small;
-                    margin-top: -20px;
-                }
+                flex-grow: 1;
+                height: inherit;
+                border: $border;
+                background-color: $colorFondoClaro;
+                padding: 100px;
+                    #tituloNombre{
+                        font-size: 40px;
+                        font-family: "Roboto", Arial, Helvetica, sans-serif;
+                        color: $colorOscuro;
+                    }
+                    #tituloOficio{
+                        color: $colorLetraGrisClaro;
+                        font-size: 20px;
+                        font-family: Arial, Helvetica, sans-serif
+                    }
             }
-        
-        }
-        #texto{
-            @include flex(column, center, center);
-            flex-grow: 1;
-            border: $border;
-        }
-        #redes{
-            @include flex(column, center, center);
-            width: 40px;
-            border: $border;
-        }
+            #redes{
+                @include flex(column, center, center);
+                width: 25px;
+                border: $border;
+            }
+    }
+    
 }
-
-
-
 
