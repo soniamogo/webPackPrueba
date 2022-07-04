@@ -1,4 +1,84 @@
 body{
-    min-height:100vh;
-    background-color: pinkc;
+    background-color: rgb(235, 233, 235);
 }
+
+@mixin flex($tipo, $aling, $justify){
+    display: flex;
+    flex-direction: $tipo;
+    justify-content: $justify;
+    align-items: $aling;
+}
+
+$border: black solid 2px;
+
+@mixin celda(){
+    width: 150px;
+    height: 150px;
+}
+
+#curri{
+    @include flex(row, flex-start, center);
+    border: $border;
+    width: 80%;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: 180px;
+        #menu{
+        @include flex(column, center, flex-start);
+        border : $border;
+            #fotoNombre{
+                @include flex(column, center, center);
+                width: 150px;
+                height: 180px;
+                #foto{
+                    background-image: url('../dist/public/assets/Foto.png');
+                    background-position: center;
+                    background-size: cover;
+                    flex-grow: 1;
+                    width: inherit;
+                }
+                #nombre{
+                    background-color: rgb(58, 56, 56);
+                    width: inherit;
+                    height: 25px;
+                    padding-top: 5px;
+                    text-align: center;
+                    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    color: #e8e8e8;
+                    font-weight: bold;
+                }
+            }
+            .elementoMenu{
+                @include flex(column, center, space-evenly);
+                @include celda();
+                background-color: #ffffff;
+                .iconoMenu{
+                    width: 20px;
+                }
+                .tituloMenu{
+                    font-size: medium;
+                    font-weight: bolder;
+                    color: #2a2a2a
+                }
+                .subtituloMenu{
+                    font-size: small;
+                    margin-top: -20px;
+                }
+            }
+        
+        }
+        #texto{
+            @include flex(column, center, center);
+            flex-grow: 1;
+            border: $border;
+        }
+        #redes{
+            @include flex(column, center, center);
+            width: 40px;
+            border: $border;
+        }
+}
+
+
+
+
