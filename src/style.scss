@@ -12,6 +12,18 @@
     height: 150px;
 }
 
+@mixin titulos(){
+        font-size: medium;
+        font-weight: bolder;
+        color: $colorOscuro;
+}
+
+@mixin subtitulos(){
+    font-size: small;
+    margin-top: -20px;
+    color: $colorLetraGrisClaro;
+}
+
 $border: black solid 2px;
 $colorGrey: #999999;
 $colorFondoClaro: #ffffff;
@@ -71,14 +83,10 @@ body{
                             width: 20px;
                         }
                         .tituloMenu{
-                            font-size: medium;
-                            font-weight: bolder;
-                            color: $colorOscuro;
+                            @include titulos();
                         }
                         .subtituloMenu{
-                            font-size: small;
-                            margin-top: -20px;
-                            color: $colorLetraGrisClaro;
+                            @include subtitulos();
                         }                    
             
                 }
@@ -88,7 +96,6 @@ body{
                 @include flex(column, center, space-evenly);
                 flex-grow: 1;
                 height: inherit;
-                // border: $border;
                 background-color: $colorFondoClaro;
                 padding: 100px;
                     #tituloNombre{
@@ -103,10 +110,25 @@ body{
                     }
                     .separador{
                         width: 20px;
-                        height: 10px;
+                        height: 8px;
                         background-color: $colorAmarillo;
                         background-size: cover;
-                        margin-top: 50px;
+                        margin-top: 75px;
+                    }
+                            
+                    .tituloMenu{
+                         @include titulos();
+                         margin-top: 10px;
+                         font-size: large;
+                    }
+                    .descripcion{
+                        @include subtitulos();
+                        font-style: italic;
+                        text-align: center;
+                        margin-top: 40px;
+                        margin-left: 70px;
+                        margin-right: 70px;
+                        font-size: medium;
                     }
             }
             #redes{
