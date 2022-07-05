@@ -65,13 +65,7 @@ body{
                             color: #e8e8e8;
                             font-weight: bold;
                         }
-                }
-                #primerElemento{
-                    background-color: $colorAmarillo;
-                    .subtituloMenu{
-                        color: $colorOscuro;
-                        font-weight: bold;
-                    }
+                    
                 }
                 .elementoMenu{
                     @include flex(column, center, space-evenly);
@@ -87,8 +81,27 @@ body{
                         }
                         .subtituloMenu{
                             @include subtitulos();
-                        }                    
-            
+                        }                         
+                }
+                .activo{
+                    background-color: $colorAmarillo;
+                    position: relative;
+                        .subtituloMenu{
+                            color: $colorOscuro;
+                            font-weight: bold;
+                            }
+                        &:before{
+                        content: " ";
+                        position: absolute;
+                        right: -20px;
+                        width:0px;
+                        height:0px;
+                        border:10px solid;
+                        border-top-color: transparent;
+                        border-left-color: $colorAmarillo;
+                        border-right-color: transparent;
+                        border-bottom-color: transparent;
+                    }
                 }
             }
             
@@ -98,9 +111,10 @@ body{
                 height: inherit;
                 background-color: $colorFondoClaro;
                 padding: 100px;
+                position: relative;
                     #tituloNombre{
                         font-size: 40px;
-                        font-family: "Roboto", Arial, Helvetica, sans-serif;
+                        font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
                         color: $colorOscuro;
                     }
                     #tituloOficio{
@@ -112,7 +126,6 @@ body{
                         width: 20px;
                         height: 8px;
                         background-color: $colorAmarillo;
-                        background-size: cover;
                         margin-top: 75px;
                     }
                             
@@ -130,13 +143,91 @@ body{
                         margin-right: 70px;
                         font-size: medium;
                     }
-            }
+                    .bloque{
+                        @include flex(column, flex-start, center);
+                        margin-top: 50px;
+                        position: relative;
+                        .campo{
+                            @include flex(row, space-around, flex-start);
+                            line-height: 2;
+                            .etiqueta{
+                                @include titulos();
+                                width: 300px;
+                                text-align: right;
+                                margin-right: 20px;
+                                padding-right: 20px;
+                                border-right: 1px solid rgba(211, 211, 211, 0.634);
+                            }
+                            .datos{
+                                @include subtitulos();
+                                width: 300px;
+                                margin-top: 0;
+                                font-size: medium;
+                                
+                            }
+                            &:first-child{
+                                .etiqueta{
+                                padding-top: 30px;
+                                }
+                                .datos{
+                                padding-top: 30px;
+                                }
+                            }
+                            &:last-child{
+                                .etiqueta{
+                                padding-bottom: 30px;
+                                }
+                                .datos{
+                                padding-bottom: 30px;
+                                }
+                            }
+
+                        }
+                        &:before{
+                            content:"";
+                            margin: 0 auto;
+                            position: relative;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background-color: $colorOscuro;
+                        }
+                        &:after{
+                            content:"";
+                            margin: 0 auto;
+                            position: relative;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background-color: $colorAmarillo;
+                        }
+                    }
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 18px;
+                        background-color: $colorAmarillo;
+                        background-size: cover;
+                    }          
+                }
+               
             #redes{
                 @include flex(column, center, center);
                 width: 25px;
                 border: $border;
             }
+            .paginas{
+                padding-top: 100px;
+            }
+            
+            
     }
-    
+   
 }
+
+
+
 
